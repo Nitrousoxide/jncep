@@ -26,7 +26,23 @@ while inside of the git project's path, or you build directly from the source:
 which will will clean up the git repo after it completes the build.
 
 Then you simply need to run it with:
-`docker run jncep
+
+`docker run jncep`
+
+all the other flags below and such should apply. An example run command (with secrets replaced) would look like:
+
+```
+docker run -e JNCEP_OUTPUT=/Downloads -v $HOME/Downloads:/Downloads jncep epub -l $USERNAME -p $PASSWORD https://j-novel.club/read/tearmoon-empire-volume-1-part-1
+```
+
+You could create an alias for this portion:
+```
+docker run -e JNCEP_OUTPUT=/Downloads -v $HOME/Downloads:/Downloads jncep epub -l $USERNAME -p $PASSWORD
+```
+
+To just "jncep" to allow for a much simpler invocation.
+
+Note, you will need to attach some volume to the container to get any downloaded epubs out to your host system as I did above. The environment variable `JNCEP_OUTPUT` defines the location for downloads in the container, then `-v $HOME/Downloads:/Downloads` mounts your `$HOME/Downloads` into the container at `/Downloads` to allow the epub to persist beyond the container's close
 
 # Limitations & disclaimer
 
