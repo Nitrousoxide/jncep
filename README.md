@@ -14,6 +14,20 @@ pip install jncep
 
 The command above will install the `jncep` Python library and its dependencies. The library includes a command-line script, also named `jncep`, whose functionality is described below.
 
+# Docker/Podman Install
+Either clone the git path and build it locally using 
+
+`docker build -t jncep .`
+
+while inside of the git project's path, or you build directly from the source:
+
+`docker build -t jncep https://github.com/gvellut/jncep.git`
+
+which will will clean up the git repo after it completes the build.
+
+Then you simply need to run it with:
+`docker run jncep
+
 # Limitations & disclaimer
 
 This tool only works with J-Novel Club __novels__, not manga.
